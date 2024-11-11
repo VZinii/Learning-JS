@@ -38,6 +38,7 @@ newSection();
  */
 
 const ul = document.querySelector('ul');
+console.log('Events, bubbling, delegation');
 
 // First step, grab the element you want to add an event on
 
@@ -55,14 +56,29 @@ button.addEventListener('click', () => {
 
 // Now, let's get an event for each list item
 
-const items = document.querySelectorAll('li');
+// const items = document.querySelectorAll('li');
 
-items.forEach(item => {
-    item.addEventListener('click', e => {
-        // console.log(item);
-        // console.log(e.target);
-        // e.target.style.textDecoration = 'line-through';
-        e.target.remove(); // Remove an html element
-    });
-});
+// items.forEach(item => {
+//     item.addEventListener('click', e => {
+//         // console.log(item);
+//         // console.log(e.target);
+//         // e.target.style.textDecoration = 'line-through';
+//         e.target.remove(); // Remove an html element
+//     });
+// }); BAD SOLUTION ^^
 
+// Instead of attaching an event for each LI element, we should use the JavaScript event bubbling, because it's more efficient
+// For this, we attach an event to the parent of the elements we want an event on and verify if we clicked on them in a if statment:
+
+ul.addEventListener('click', e => {
+    if (e.target.tagName === 'LI'){
+        e.target.remove();
+    }
+    else {
+        console.log(e.target);
+    }
+}); // Now, even if we add new LI elements in the ul, it will still bubble up the event to the parent (UL), so it will remove as well.
+
+newSection();
+
+ 
