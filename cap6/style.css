@@ -1,0 +1,31 @@
+.sucess {
+    color: green;
+    border: 1px dotted green;
+    padding: 10px;
+}
+
+.error {
+    color: red;
+    border: 1px dotted red;
+    padding: 10px;
+}
+
+.title {
+    color: aqua;
+    font-size: 60px;
+    font-weight: 900;
+}
+
+.article-element {
+    color: brown;
+    font-weight: bold;
+}
+
+li {
+    list-style-type: none;
+    max-width: 200px;
+    padding: 8px;
+    margin: 8px auto;
+    background: #eee;
+    border: 1px dotted #ddd;
+}
