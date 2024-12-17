@@ -28,30 +28,14 @@ const getTodos = (resource) => {
 
 };
 
-// It looks a lot better dealing with the request this way than the other way
 getTodos('todos/vitor.json').then(data => {
-    console.log(data);
+    console.log('promise 1 resolved:', data);
+    return getTodos('todos/pedro.json');
+}).then(data => {
+    console.log('promise 2 resolved:', data);
+    return getTodos('todos/raissa.json');
+}).then(data => {
+    console.log('promise 3 resolved:', data);
 }).catch(error => {
-    console.log(error);
+    console.log('some promise was rejected:', error);
 });
-
-// Promises are a way of treating data in JavaScript
-
-// Basic example of Promises:
-
-// const getSomething = () => {
-//     // The Promise has two built-in parameters we can work with (resolve and reject)
-//     return new Promise((resolve, reject) => {
-//         // fetching some data
-//         // resolve('some data');
-//         // reject('some error');
-//     });
-
-// };
-
-// getSomething().then(data => {
-//     console.log(data);
-// }).catch(error => {
-//     console.log(error);
-// });
-
